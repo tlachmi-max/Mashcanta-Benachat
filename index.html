@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="בנחת — ייעוץ למשכנתא חדשה ולמחזור משכנתא, מתוך הסתכלות על התמונה הפיננסית המלאה של המשפחה. ליווי אישי, שקוף וברור מול הבנקים.">
+  <title>בנחת | ייעוץ למשכנתאות ותכנון פיננסי משפחתי</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --green:#0c3d22; --green-dark:#082f1a; --lime:#a3e64b; --lime-soft:#dff5bf;
+      --cream:#f8f4e9; --cream-dark:#eee7d6; --white:#fff; --ink:#17251c;
+      --muted:#536158; --line:rgba(12,61,34,.14); --shadow:0 18px 45px rgba(12,61,34,.10);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Assistant',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;overflow-x:hidden}
+    h1,h2{font-family:'Frank Ruhl Libre',serif;color:var(--green);line-height:1.2}
+    a{text-decoration:none;color:inherit} img{max-width:100%;display:block}
+    .container{width:min(1100px,calc(100% - 40px));margin:auto}
+    .section{padding:88px 0}
+    .eyebrow{display:inline-block;padding:7px 15px;border-radius:99px;background:var(--lime-soft);color:var(--green);font-weight:800;font-size:14px;margin-bottom:17px}
+    .section-title{font-size:clamp(30px,4vw,46px);margin-bottom:18px}
+    .section-lead{font-size:19px;color:var(--muted);max-width:720px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 27px;border-radius:99px;font-weight:800;transition:.2s;cursor:pointer}
+    .btn-primary{background:var(--lime);color:var(--green);box-shadow:0 14px 28px rgba(12,61,34,.18)}
+    .btn-primary:hover{transform:translateY(-2px);background:#b7ef6c}
+    .btn-outline{border:1.5px solid rgba(255,255,255,.45);color:#fff}
+    .btn-outline:hover{border-color:var(--lime);color:var(--lime)}
+    .nav{position:fixed;inset:0 0 auto;z-index:50;background:rgba(248,244,233,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .nav-inner{height:70px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:9px;font-family:'Frank Ruhl Libre';font-size:24px;font-weight:900;color:var(--green)}
+    .brand img{width:37px;height:37px;object-fit:contain}
+    .nav .btn{padding:9px 17px;background:var(--green);color:#fff;font-size:14px}
+    .hero{padding:150px 0 100px;position:relative;background:radial-gradient(circle at 12% 8%,rgba(163,230,75,.28),transparent 30%),var(--cream)}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:66px}
+    .hero h1{font-size:clamp(42px,6vw,70px);margin-bottom:23px}
+    .hero h1 span{background:linear-gradient(transparent 65%,var(--lime) 65%)}
+    .hero-copy{font-size:20px;color:var(--muted);max-width:680px;margin-bottom:31px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .microcopy{font-size:14px;color:var(--muted);margin-top:13px}
+    .hero-card{background:var(--green);border-radius:30px;padding:38px;color:#fff;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .hero-card:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(163,230,75,.13);left:-100px;bottom:-120px}
+    .hero-card h2{color:var(--lime);font-size:28px;margin-bottom:20px}
+    .hero-card ul{list-style:none;position:relative;z-index:1}
+    .hero-card li{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.13);font-size:17px}
+    .hero-card li:last-child{border:0}.check{color:var(--lime);font-weight:900}
+    .why{background:var(--white)}
+    .why-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
+    .statement{background:var(--green);color:#fff;border-radius:26px;padding:38px;font-size:24px;font-family:'Frank Ruhl Libre';line-height:1.5;box-shadow:var(--shadow)}
+    .statement strong{color:var(--lime)}
+    .why-copy p{font-size:18px;color:var(--muted);margin-bottom:16px}
+    .compare{margin-top:27px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .compare-card{border:1px solid var(--line);border-radius:18px;padding:21px;background:var(--cream)}
+    .compare-card h3{color:var(--green);margin-bottom:7px}.compare-card p{font-size:16px;margin:0}
+    .process{background:var(--cream-dark)}
+    .process-head{text-align:center;margin:0 auto 46px}.process-head .section-lead{margin:auto}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .step{background:#fff;border:1px solid var(--line);border-radius:21px;padding:27px;position:relative}
+    .step-num{width:42px;height:42px;border-radius:12px;background:var(--green);color:var(--lime);display:grid;place-items:center;font-weight:900;font-size:19px;margin-bottom:17px}
+    .step h3{font-size:20px;color:var(--green);margin-bottom:8px}.step p{color:var(--muted)}
+    .calm{background:var(--green);color:#fff}
+    .calm h2{color:#fff}.calm .section-lead{color:rgba(255,255,255,.78)}
+    .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
+    .benefit{border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:24px;background:rgba(255,255,255,.06)}
+    .benefit h3{color:var(--lime);font-size:19px;margin-bottom:7px}.benefit p{color:rgba(255,255,255,.78)}
+    .about{background:var(--white)}
+    .about-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:60px;align-items:center}
+    .about img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:28px;box-shadow:var(--shadow)}
+    .about p{font-size:18px;color:var(--muted);margin-bottom:15px}
+    .quote{margin-top:23px;padding:22px 25px;background:var(--lime-soft);border-right:5px solid var(--lime);border-radius:15px;color:var(--green);font-family:'Frank Ruhl Libre';font-size:21px;font-weight:700}
+    .fit{background:var(--cream)}
+    .fit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+    .fit-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px}
+    .fit-card h3{color:var(--green);margin-bottom:8px}.fit-card p{color:var(--muted)}
+    .cta{padding:90px 0;background:var(--cream)}
+    .cta-card{background:var(--green);border-radius:30px;text-align:center;padding:55px 30px;color:#fff;position:relative;overflow:hidden}
+    .cta-card h2{color:#fff;font-size:clamp(32px,5vw,50px);margin-bottom:14px}.cta-card p{max-width:620px;margin:0 auto 28px;color:rgba(255,255,255,.8);font-size:19px}
+    .cta-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+    footer{padding:30px 0;background:var(--green-dark);color:rgba(255,255,255,.67);text-align:center;font-size:14px}
+    footer strong{color:var(--lime)}
+    a:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+    @media(max-width:850px){.hero-grid,.why-grid,.about-grid{grid-template-columns:1fr}.hero-card{max-width:620px}.steps,.benefits,.fit-grid{grid-template-columns:1fr 1fr}.about img{max-width:340px;margin:auto}.section{padding:68px 0}}
+    @media(max-width:580px){.container{width:min(100% - 28px,1100px)}.nav-inner{height:62px}.brand{font-size:21px}.brand img{width:31px;height:31px}.nav .btn{font-size:12.5px;padding:8px 12px}.hero{padding:112px 0 70px}.hero h1{font-size:39px}.hero-copy{font-size:18px}.hero-card{padding:28px}.steps,.benefits,.fit-grid,.compare{grid-template-columns:1fr}.section{padding:58px 0}.cta{padding:58px 0}.cta-card{padding:42px 20px}.btn{width:100%}.hero-actions{display:block}.hero-actions .microcopy{margin-top:12px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="ניווט ראשי">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="בנחת - חזרה לראש העמוד"><img src="logo-icon.png" alt=""><span>בנחת</span></a>
+      <a class="btn" href="https://wa.me/972526996736?text=%D7%94%D7%99%D7%99%20%D7%A6%D7%95%D7%A8%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA%20%D7%A7%D7%A6%D7%A8%D7%94%20%D7%91%D7%A0%D7%95%D7%A9%D7%90%20%D7%94%D7%9E%D7%A9%D7%9B%D7%A0%D7%AA%D7%90%20%D7%A9%D7%9C%D7%99" target="_blank" rel="noopener">לתיאום שיחת היכרות</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">ייעוץ למשכנתא חדשה • מחזור משכנתא • תכנון פיננסי משפחתי</div>
+          <h1>משכנתא טובה היא לא רק ריבית טובה.<br><span>היא צריכה להתאים למשפחה שלכם.</span></h1>
+          <p class="hero-copy">גובה ההחזר, המסלולים ומשך המשכנתא ישפיעו על החיים הכלכליים שלכם לשנים קדימה. לכן נבנה אותה מתוך הסתכלות על התמונה המלאה: ההכנסות, ההוצאות, החסכונות והתוכניות לעתיד.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/972526996736?text=%D7%94%D7%99%D7%99%20%D7%A6%D7%95%D7%A8%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA%20%D7%A7%D7%A6%D7%A8%D7%94%20%D7%91%D7%A0%D7%95%D7%A9%D7%90%20%D7%94%D7%9E%D7%A9%D7%9B%D7%A0%D7%AA%D7%90%20%D7%A9%D7%9C%D7%99" target="_blank" rel="noopener">בואו נדבר על המשכנתא שלכם ←</a>
+          </div>
+          <p class="microcopy">שיחת היכרות קצרה, ללא התחייבות ובגובה העיניים.</p>
+        </div>
+        <aside class="hero-card" aria-label="מה כולל הליווי">
+          <h2>ליווי אישי, ברור ובנחת</h2>
+          <ul>
+            <li><span class="check">✓</span><span>תכנון שמתאים ליכולת וליעדים של המשפחה</span></li>
+            <li><span class="check">✓</span><span>הסבר בגובה העיניים לפני כל החלטה</span></li>
+            <li><span class="check">✓</span><span>ניהול התהליך והמשא ומתן מול הבנקים</span></li>
+            <li><span class="check">✓</span><span>עדכון שוטף וליווי עד לביצוע</span></li>
+          </ul>
+        </aside>
+      </div>
+    </header>
+
+    <section class="section why" id="approach">
+      <div class="container why-grid">
+        <div class="statement">הבנק בוחן את המשכנתא מנקודת המבט שלו.<br><strong>אנחנו נבחן אותה מנקודת המבט שלכם.</strong></div>
+        <div class="why-copy">
+          <span class="eyebrow">למה צריך תכנון לפני שפונים לבנק?</span>
+          <h2 class="section-title">המשכנתא היא חלק מהתוכנית הכלכלית של הבית</h2>
+          <p>השאלה היא לא רק כמה כסף אפשר לקבל, אלא כמה נכון להחזיר בכל חודש, איזו גמישות כדאי להשאיר, ואיך ההחלטה משתלבת עם החסכונות, ההוצאות והיעדים המשפחתיים.</p>
+          <p>רק אחרי שמבינים את התמונה הזאת, אפשר לבנות תמהיל ולצאת לבנקים עם כיוון ברור. כך מקבלים החלטות מתוך הבנה, ולא מתוך לחץ.</p>
+          <div class="compare">
+            <div class="compare-card"><h3>לא רק המחיר היום</h3><p>בוחנים גם את יציבות ההחזר ואת השינויים האפשריים לאורך השנים.</p></div>
+            <div class="compare-card"><h3>לא רק מה אפשר</h3><p>בודקים מה נכון ומתאים למשפחה, גם כשיש תוכניות והוצאות נוספות.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="container">
+        <div class="process-head">
+          <span class="eyebrow">כך נעבוד יחד</span>
+          <h2 class="section-title">תהליך מסודר, משלב ההיכרות ועד הביצוע</h2>
+          <p class="section-lead">בכל שלב תדעו מה עושים, למה עושים אותו ומה הצעד הבא.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><div class="step-num">1</div><h3>היכרות ואפיון פיננסי</h3><p>נבין את מצב המשפחה, הצרכים, היכולת והיעדים לשנים הקרובות.</p></article>
+          <article class="step"><div class="step-num">2</div><h3>תכנון פיננסי ויעדים</h3><p>נחבר את המשכנתא להכנסות, להוצאות, לחסכונות ולתוכניות שלכם.</p></article>
+          <article class="step"><div class="step-num">3</div><h3>בניית התמהיל</h3><p>נבנה מבנה משכנתא מותאם ונבחן את ההחזר והסיכונים בתרחישים שונים.</p></article>
+          <article class="step"><div class="step-num">4</div><h3>פנייה לבנקים ומשא ומתן</h3><p>אנהל את התהליך מול הבנקים, אשווה הצעות ואפעל לשיפור התנאים.</p></article>
+          <article class="step"><div class="step-num">5</div><h3>בחירת החלופה המתאימה</h3><p>נעבור יחד על המשמעויות ונבחר מתוך הבנה, לא רק לפי שורת הריבית.</p></article>
+          <article class="step"><div class="step-num">6</div><h3>סגירה וליווי עד הביצוע</h3><p>אלווה אתכם במסמכים, בחתימות ובמשימות הנדרשות עד השלמת התהליך.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section calm" id="calm">
+      <div class="container">
+        <span class="eyebrow">למה "בנחת"?</span>
+        <h2 class="section-title">כי החלטה גדולה לא צריך לקבל בלחץ</h2>
+        <p class="section-lead">השירות נועד לא רק לבנות משכנתא, אלא גם להפוך תהליך מורכב לברור, מסודר ואנושי.</p>
+        <div class="benefits">
+          <div class="benefit"><h3>כתובת אחת לאורך הדרך</h3><p>אדם אחד שמכיר את התמונה ומלווה אתכם מהשיחה הראשונה ועד הביצוע.</p></div>
+          <div class="benefit"><h3>הסברים בגובה העיניים</h3><p>מבינים את החלופות ואת המשמעות שלהן לפני שמחליטים.</p></div>
+          <div class="benefit"><h3>עדכון ושקיפות</h3><p>יודעים בכל שלב מה נעשה, מה התקבל ומה הצעד הבא.</p></div>
+          <div class="benefit"><h3>ניהול העבודה מול הבנקים</h3><p>פחות התרוצצות ועומס עבורכם, עם תהליך מרוכז ומסודר.</p></div>
+          <div class="benefit"><h3>ראייה משפחתית רחבה</h3><p>המשכנתא נבחנת לצד התקציב, החסכונות והיעדים העתידיים.</p></div>
+          <div class="benefit"><h3>מקום לעצור ולשאול</h3><p>לא ממהרים לחתום. בודקים, מסבירים ומתקדמים בקצב נכון.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container about-grid">
+        <div><img src="profile-tzuri.jpg" alt="צורי לחמי, יועץ משכנתאות"></div>
+        <div>
+          <span class="eyebrow">נעים להכיר</span>
+          <h2 class="section-title">אני צורי לחמי</h2>
+          <p>הגעתי לעולם המשכנתאות מתוך עולם ההייטק, שבו למדתי לעבוד בצורה יסודית, לרדת לפרטים, לנתח מספרים ולקבל החלטות באחריות.</p>
+          <p>לאחר הכשרה מקצועית בייעוץ משכנתאות אצל אורן שלו במכללת פוקוס, בחרתי להביא לתחום גישה שמחברת בין המספרים לבין החיים עצמם: לא רק לסגור משכנתא, אלא לוודא שהיא מתאימה למשפחה ולדרך שאליה היא רוצה להתקדם.</p>
+          <p>אני מלווה משכנתאות חדשות ומחזורי משכנתא באופן אישי, בשקיפות ובגובה העיניים, עם מקום לשאלות ובלי לחץ מיותר.</p>
+          <blockquote class="quote">"כשמבינים את התמונה המלאה ובונים תוכנית מסודרת, הלחץ יורד ואפשר לקבל החלטה בנחת."</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fit" id="fit">
+      <div class="container">
+        <span class="eyebrow">למי השירות מתאים?</span>
+        <h2 class="section-title">למשפחות שרוצות לעשות את זה נכון</h2>
+        <div class="fit-grid">
+          <article class="fit-card"><h3>לקראת רכישת דירה</h3><p>למי שרוצה להבין את היכולת האמיתית, לתכנן מראש ולהגיע לבנקים עם תמהיל שמתאים למשפחה.</p></article>
+          <article class="fit-card"><h3>לבדיקת מחזור משכנתא</h3><p>למי שרוצה לבדוק אם המשכנתא הקיימת עדיין מתאימה, ומה המשמעות של שינוי מסלולים או תנאים.</p></article>
+          <article class="fit-card"><h3>למי שמרגיש מוצף</h3><p>למי שמחפש ליווי אישי שיעשה סדר במספרים, במסמכים ובתהליך מול המערכת הבנקאית.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta-card">
+          <h2>בואו נדבר על המשכנתא שלכם</h2>
+          <p>בשיחת היכרות קצרה נבין איפה אתם נמצאים, מה אתם צריכים ואיך אפשר להתקדם בצורה נכונה ובנחת.</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="https://wa.me/972526996736?text=%D7%94%D7%99%D7%99%20%D7%A6%D7%95%D7%A8%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA%20%D7%A7%D7%A6%D7%A8%D7%94%20%D7%91%D7%A0%D7%95%D7%A9%D7%90%20%D7%94%D7%9E%D7%A9%D7%9B%D7%A0%D7%AA%D7%90%20%D7%A9%D7%9C%D7%99" target="_blank" rel="noopener">שליחת הודעה ב־WhatsApp</a>
+            <a class="btn btn-outline" href="tel:+972526996736">שיחה לצורי: 052-699-6736</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container"><strong>בנחת</strong> | ייעוץ משכנתאות ותכנון פיננסי משפחתי<br>המידע באתר כללי ואינו מהווה התחייבות לקבלת אשראי או לתנאים מסוימים.</div>
+  </footer>
+</body>
+</html>
